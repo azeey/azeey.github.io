@@ -1,0 +1,8 @@
+- title: "About" # Title/Caption of the menu item
+  url: "/about" # the page where it pointed 
+- title: "Blog" # Title/Caption of the menu item
+  url: "/blog" # the page where it pointed 
+- title: "Archive"
+  url: "/archive"
+- title: "RSS"
+  url: "/feed.xml"

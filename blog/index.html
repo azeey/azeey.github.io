@@ -1,19 +1,25 @@
 ---
-layout: page
+layout: default
 title: Blog
 permalink: /blog/
 ---
 
 <div class="home">
 
+  {% assign post = site.posts.first %}
+  {% assign content = post.content %}
+  {% include single_post.html %}
+
+  <hr class="title-sep"/>
+
   <ul class="post-list">
-    {% for post in site.posts %}
+      <h1>Recent Posts</h1>
+    {% for post in site.posts offset:1 limit:3%}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+        <h3>
+          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h3>
       </li>
     {% endfor %}
   </ul>

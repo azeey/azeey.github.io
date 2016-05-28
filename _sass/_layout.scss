@@ -16,11 +16,14 @@
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
-    text-decoration: none;
 
     &,
     &:visited {
         color: $grey-color-light;
+    }
+
+    &:hover {
+        text-decoration: none;
     }
 }
 
@@ -203,17 +206,6 @@
 .post-header {
     margin-bottom: $spacing-unit;
 
-    hr {
-        border: 0;
-        margin-top: $spacing-unit;
-        margin-bottom: $spacing-unit;
-        height: 1px;
-        background: $background-color;
-        background-image: -webkit-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
-        background-image:    -moz-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
-        background-image:     -ms-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
-        background-image:      -o-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
-    }
 }
 
 .post-title {
@@ -252,4 +244,17 @@
             font-size: 18px;
         }
     }
+}
+
+
+hr.title-sep {
+    border: 0;
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
+    height: 1px;
+    background: $background-color;
+    background-image: -webkit-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
+    background-image:    -moz-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
+    background-image:     -ms-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
+    background-image:      -o-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
 }
