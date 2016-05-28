@@ -130,24 +130,48 @@ code {
     font-size: 15px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
-    background-color: #eef;
+    font-family: Menlo, Monaco, "Courier New", monospace;
 }
 
 code {
     padding: 1px 5px;
+    color: #bf616a;
+    background-color: #f9f9f9;
+    border-radius: 2px;
 }
 
 pre {
-    padding: 8px 12px;
-    overflow-x: scroll;
+    background-color: #333;
+    border-radius: 3px;
+    background-color: #f9f9f9;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    line-height: 1.4;
+    font-size: 15px;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
 
     > code {
         border: 0;
-        padding-right: 0;
-        padding-left: 0;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+        background-color: transparent;
     }
 }
 
+
+.highlight {
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+.highlight pre {
+  margin-bottom: 0;
+}
 
 
 /**

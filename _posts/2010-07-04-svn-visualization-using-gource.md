@@ -21,11 +21,11 @@ cool to see our SVN activity visualized.
 
 After a few hours of playing around and a wonderful suggestion for the music from my wife, here is the result:
 
-<object width="601" height="338">
+<object width="100%" height="338">
   <param name="allowfullscreen" value="true" />
   <param name="allowscriptaccess" value="always" />
   <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=12604296&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1" />
-  <embed type="application/x-shockwave-flash" width="601" height="338" src="http://vimeo.com/moogaloop.swf?clip_id=12604296&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1" allowscriptaccess="always" allowfullscreen="true"></embed>
+  <embed type="application/x-shockwave-flash" width="100%" height="338" src="http://vimeo.com/moogaloop.swf?clip_id=12604296&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1" allowscriptaccess="always" allowfullscreen="true" />
 </object>
 
 [ciholas-svn-vis-1080p](http://vimeo.com/12604296) from [azeey](http://vimeo.com/azeey) on [Vimeo](http://vimeo.com).

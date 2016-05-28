@@ -2,50 +2,57 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
+    min-height: $header-height;
 
     // Positioning context for the mobile navigation icon
     position: relative;
+    background: $site-header-background;
 }
 
 .site-title {
     font-size: 26px;
-    line-height: 56px;
+    line-height: $header-height;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
+    text-decoration: none;
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $grey-color-light;
     }
 }
 
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: $header-height;
 
     .menu-icon {
         display: none;
     }
 
     .page-link {
-        color: $text-color;
+        color: $grey-color;
         line-height: $base-line-height;
+        font-size: 18px;
 
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
             margin-left: 20px;
         }
+
+        text-decoration: none;
+        &:hover {
+            color: $grey-color-lighter;
+        }
     }
 
     @include media-query($on-palm) {
         position: absolute;
-        top: 9px;
+        top: 5px;
         right: 30px;
-        background-color: $background-color;
+        background: $site-header-background;
         border: 1px solid $grey-color-light;
         border-radius: 5px;
         text-align: right;
@@ -53,18 +60,18 @@
         .menu-icon {
             display: block;
             float: right;
-            width: 36px;
-            height: 26px;
+            width: 30px;
+            height: 20px;
             line-height: 0;
-            padding-top: 10px;
+            padding-top: 5px;
             text-align: center;
 
             > svg {
                 width: 18px;
-                height: 15px;
+                height: 14px;
 
                 path {
-                    fill: $grey-color-dark;
+                    fill: $grey-color-light;
                 }
             }
         }
@@ -195,6 +202,18 @@
  */
 .post-header {
     margin-bottom: $spacing-unit;
+
+    hr {
+        border: 0;
+        margin-top: $spacing-unit;
+        margin-bottom: $spacing-unit;
+        height: 1px;
+        background: $background-color;
+        background-image: -webkit-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
+        background-image:    -moz-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
+        background-image:     -ms-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
+        background-image:      -o-linear-gradient(left, $background-color, darken($background-color,30%), $background-color); 
+    }
 }
 
 .post-title {

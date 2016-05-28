@@ -46,15 +46,17 @@ to me until later on so I used scons.  Scons understands how to build shared lib
 it was easier to use it than to write a makefile.  Annoyingly scons adds the "lib" prefix to the libraries it builds so
 I had to change sysio.pyx to libsysio.pyx or else python wouldn't import the resulting .so file.
 
-    libname='libsysio'
-    src=libname+'.c'
-    pyx=libname+'.pyx'
-    bld = Builder(action ='cython $SOURCE')
-    env = Environment(BUILDERS = {'cython': bld})
-    cython =env.cython(pyx)
-    SharedLibrary(libname, src, CCFLAGS='-m32',LINKFLAGS='-m32',CPPPATH='/usr/local/python32/include/python2.6')
-    Requires(src, cython)
-    Clean(cython,src)
+``` python
+libname='libsysio'
+src=libname+'.c'
+pyx=libname+'.pyx'
+bld = Builder(action ='cython $SOURCE')
+env = Environment(BUILDERS = {'cython': bld})
+cython =env.cython(pyx)
+SharedLibrary(libname, src, CCFLAGS='-m32',LINKFLAGS='-m32',CPPPATH='/usr/local/python32/include/python2.6')
+Requires(src, cython)
+Clean(cython,src)
+```
 
 I am really new to cython and scons so I am not sure if this is the best way to build cython modules but the user guide
 at the cython website had a "to be completed..." entry for scons.
@@ -65,11 +67,13 @@ Using the sysio module:
 Now that I had a 32 bit module, I was able to start up the python shell and toggle some pins and proceed with my unit
 tests.
 
-    from libsysio import *
-    # Refer to the vortex86dx datasheet
-    port1dir = Device(0x99)
-    port1data = Device(0x79)
-    # Set all ports to output
-    port1dir.outb(0xff)
-    # Drive all pins high
-    port1data.outb(0xff)
+``` python
+from libsysio import *
+# Refer to the vortex86dx datasheet
+port1dir = Device(0x99)
+port1data = Device(0x79)
+# Set all ports to output
+port1dir.outb(0xff)
+# Drive all pins high
+port1data.outb(0xff)
+```

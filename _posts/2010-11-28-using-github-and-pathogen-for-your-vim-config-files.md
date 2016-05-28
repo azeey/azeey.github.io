@@ -11,7 +11,7 @@ tags:
 excerpt: Pathogen basically modifies the vim runtime paths which tell vim where to find plugins.
 ---
 
-<% vimb="**.vim/bundle**{:.file}" %>
+{% assign vimb="**.vim/bundle**" %}
 
 If you are an avid Vim user, you know that the one thing that is lacking is a good plugin management system.  With the
 default vim installation, plugins are scattered through various folders in your .vim folder and its a nightmare to
@@ -24,7 +24,7 @@ Using [Pathogen][pathogen]
 --------------------------
 
 Pathogen basically modifies the vim runtime paths which tell vim where to find plugins.  The standard directory used by
-Pathogen to install vim plugins is <%= vimb %>.  When used appropriately (with the correct line of code in 
+Pathogen to install vim plugins is {{ vimb }}.  When used appropriately (with the correct line of code in
 your vimrc) Pathogen looks for a **bundle**{:.file} folder in **.vim**{:.file} and adds the subdirectories of it to
 the runtime path.  This essentially means each subdirectory of **bundle**{:.file} looks like a **.vim/**{:.file} folder
 to vim.
@@ -40,13 +40,13 @@ Taking the plugin fuzzyfinder as an example, the following table shows the path 
 >.vim/bundle/fuzzyfinder/autoload >> .vim/autoload
 
 This makes using Pathogen and Vim plugins really easy. All you have to do to install a plugin is to get the plugin from
-wherever, and put it in its own folder in .<%= vimb %> To remove the plugin, just delete the folder from
-<%= vimb %>. You can even use symlinking techniques as used in many Linux programs to mange their configuration
-files. Create a **.vim/bundle-available**{:.file} folder, put all the plugins in there and create symlinks from <%= vimb %>
+wherever, and put it in its own folder in .{{ vimb }} To remove the plugin, just delete the folder from
+{{ vimb }}. You can even use symlinking techniques as used in many Linux programs to mange their configuration
+files. Create a **.vim/bundle-available**{:.file} folder, put all the plugins in there and create symlinks from {{ vimb }}
 pointing to the corresponding plugin in **.vim/bundle-available**{:.file}.
 
-There are a few things to note for the proper operation of Pathogen. The folder that you create inside <%= vimb %>
-would need to have the proper subdirectory organization depending on what types of files the plugin contains. That is, you 
+There are a few things to note for the proper operation of Pathogen. The folder that you create inside {{ vimb }}
+would need to have the proper subdirectory organization depending on what types of files the plugin contains. That is, you
 can't just drop the .vim file in the main folder of the plugin. If the file a is a plugin type, it needs to go
 to the **plugin**{:.file} folder, if it's an autoload type, it needs to go the "autoload" folder. To continue with our
 fuzzyfinder example, this plugin has a file called **fuf.vim**{:.file} in its

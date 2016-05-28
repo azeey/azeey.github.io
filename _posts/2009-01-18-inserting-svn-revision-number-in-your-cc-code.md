@@ -24,8 +24,10 @@ is similar to defining the constant in your code as such:
 So we are going to use that trick.
 On your make file:
 
-    SVNDEV := -D'SVN_REV="$(shell svnversion -n .)"'
-    CFLAGS := $(SVNDEV) ...
+``` makefile
+SVNDEV := -D'SVN_REV="$(shell svnversion -n .)"'
+CFLAGS := $(SVNDEV) ...
+```
 
 That was taken from [here](http://subversion.tigris.org/faq.html#version-value-in-source)
 
@@ -40,9 +42,11 @@ You would do this in `` Project->Properties->C/C++ Build->Setting->Preprocessor 
 
 After you do all that, you can use ``SVN_REV`` as any preprocessor define. So you can print out the version number like this:
 
-    cout << "Version: SVN " << SVN_REV << endl;
-    //or
-    printf ("Version: SVN %s\n", SVN_REV);
+``` cpp
+cout << "Version: SVN " << SVN_REV << endl;
+//or
+printf ("Version: SVN %s\n", SVN_REV);
+```
 
 **NB**: ``SVN_REV`` is not just a number in c/c++, its a text (const char *).
 
@@ -54,26 +58,32 @@ After you do all that, you can use ``SVN_REV`` as any preprocessor define. So yo
 **EDIT:**
 I found out that putting the ``SVN_REV`` define in eclipse's project build settings slowed down my building process extremely.  The reason was that make was running svnversion to evaluate ``SVN_REV`` for every file it was compiling.  Instead, I found a much better way.  If you look at the makefiles that Eclipse CDT generates, it includes a makefile.defs file that's non-existent.
 
-    ...
-    ifneq ($(strip $(C_UPPER_DEPS)),)
-    -include $(C_UPPER_DEPS)
-    endif
+``` 
+...
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
 
-    -include ../makefile.defs
+-include ../makefile.defs
 
-    # Add inputs and outputs from these tool invocations to the build variables
+# Add inputs and outputs from these tool invocations to the build variables
 
-    # All Target
-    all: pre-build main-build
-    ...
+# All Target
+all: pre-build main-build
+...
+```
 
 This I believe is left for users to define their own symbols, best place for ``SVN_REV``.   This way, ``SVN_REV`` is evaluated once.  So you would do this in the makefile.defs
 
-    SVNREV:='"$(shell svnversion -n ${project_loc})"'
+``` makefile
+SVNREV:='"$(shell svnversion -n ${project_loc})"'
+```
 
 and set
 
-    SVN_REV=$(SVNREV)
+``` makefile
+SVN_REV=$(SVNREV)
+```
 
 in the projects build settings.
 
@@ -81,4 +91,6 @@ in the projects build settings.
 
 Moreover, I found a better definition for ``SVN_REV`` reading through a project called coreboot (open source bios).  This definition finds the file with the latest commit version number
 
-    SVNREV:='"$(shell LC_ALL=C svnversion -cn ../ | sed -e "s/.*://" -e "s/\([0-9]*\).*/\1/" | grep "[0-9]" )"'
+``` makefile
+SVNREV:='"$(shell LC_ALL=C svnversion -cn ../ | sed -e "s/.*://" -e "s/\([0-9]*\).*/\1/" | grep "[0-9]" )"'
+```

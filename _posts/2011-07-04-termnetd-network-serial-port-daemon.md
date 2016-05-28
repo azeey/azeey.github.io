@@ -12,7 +12,7 @@ over the network. It's a terminal server daemon that exposes the serial port and
 
 The setup is pretty simple. If using Ubuntu, you can just use:
 
-    sudo apt-get install termneted
+    sudo apt-get install termnetd
 
 Otherwise, you can build from source by downloading it from [http://www.linuxlots.com/~termpkg/](http://www.linuxlots.com/~termpkg/)
 

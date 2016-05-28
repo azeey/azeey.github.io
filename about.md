@@ -1,5 +1,7 @@
 ---
 title: About
+layout: default
+permalink: /:path/:basename/
 ---
 
 
